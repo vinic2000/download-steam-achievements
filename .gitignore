@@ -2,3 +2,5 @@ node_modules
 dist/
 src/img
 exec/
+img/
+log/

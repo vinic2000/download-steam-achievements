@@ -10,13 +10,14 @@ class WriteImage {
         try {
 
             console.log("begin download images from Steam")
-            let caminho = resolve('img');
+            const nameGame = data.name[0]
+            let caminho = resolve('img', nameGame);
 
             this.verifyDirImg(caminho)
 
-            for (const item of data) {
+            for (const item of data.achievements) {
 
-                let caminho = resolve('img', `${item.title}.jpg`);
+                let caminho = resolve('img',nameGame, `${item.title}.jpg`);
                 const file = fs.createWriteStream(caminho)
 
 

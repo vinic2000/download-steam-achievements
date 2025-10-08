@@ -1,9 +1,20 @@
 {
   "name": "download-steam-achievements",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.ts",
   "bin": "dist/index.js",
+  "pkg": {
+    "assets": [
+      "config/*.json"
+    ],
+    "targets": [
+      "node18-win-x64",
+      "node18-linux-x64",
+      "node18-macos-x64"
+    ],
+    "outputPath": "build"
+  },
   "scripts": {
     "dev": "nodemon",
     "build": "tsc",

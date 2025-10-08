@@ -17,6 +17,11 @@ class LoadImg {
 
                     const $ = cheerio.load(html);
 
+                    const name = $('.profile_small_header_texture div h1').map((i, h1) => {
+                        const text = $(h1).text();
+                        return text 
+                    })
+
                     const achievements = $('.achieveRow').map((i, el) => {
 
                         const title = $(el).find('.achieveTxt h3').text();
@@ -28,7 +33,7 @@ class LoadImg {
                         }
 
                     })
-                    resolve(achievements)
+                    resolve({achievements, name})
                 })
                 res.on('error', error => reject(error))
             })

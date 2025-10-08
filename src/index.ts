@@ -54,8 +54,8 @@ process.on('unhandledRejection', (reason, promise) => {
             if (url.toString().toUpperCase() === 'EXIT') {
                 process.exit(0)
             } else if (url.toString().toUpperCase()) {
-                const lista = await loadImg.loadImg(url)
-                await writeImage.exec(lista)
+                const data = await loadImg.loadImg(url)
+                await writeImage.exec(data)
             }
 
         } catch (error) {

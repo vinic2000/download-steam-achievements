@@ -1,8 +1,0 @@
-{}
-"Error: Erro de execução"
-"Error: Erro de execução"
-"Error: Erro de execução"
- 
-"Error: Erro de execução"
-Wed Oct 08 2025 18:29:22 GMT-0300 (Horário Padrão de Brasília)"Error: Erro de execução"
-Wed Oct 08 2025 18:29:37 GMT-0300 (Horário Padrão de Brasília) - "Error: Erro de execução"
