@@ -60,8 +60,7 @@ process.on('unhandledRejection', (reason, promise) => {
 
         } catch (error) {
             console.error("Something don't work!", error)
-            // saveLogError(error)
-
+            saveLogError(error as Error)
         }
 
     } while (true)
