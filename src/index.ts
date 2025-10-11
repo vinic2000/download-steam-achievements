@@ -2,18 +2,21 @@ import LoadImg from "./service/LoadImg";
 import WriteImage from "./service/WriteImage";
 import readline from "node:readline/promises";
 import fs from 'fs'
-import { resolve } from "node:path";
+import path from "node:path";
 
 const loadImg = new LoadImg();
 const writeImage = new WriteImage();
 
+// determine base path where files should be created
+const appBasePath = (process as any).pkg ? path.dirname(process.execPath) : process.cwd();
+
 const saveLogError = (e: Error) => {
 
     console.log('Error', e)
-    let caminho = resolve('log');
+    let caminho = path.resolve(appBasePath, 'log');
     writeImage.verifyDirImg(caminho)
 
-    caminho = resolve(caminho, 'log.txt')
+    caminho = path.resolve(caminho, 'log.txt')
 
     const stream = fs.createWriteStream(caminho, { flags: 'a' })
     stream.write(`${new Date().toString()} - ` + JSON.stringify(e.toString()) + '\n')

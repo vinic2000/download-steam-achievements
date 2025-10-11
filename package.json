@@ -9,14 +9,19 @@
     "targets": [
       "node18-win-x64",
       "node18-linux-x64",
-      "node18-macos-x64"
+      "node18-macos-x64",
+      "node18-macos-arm64"
     ],
     "outputPath": "build"
   },
   "scripts": {
     "dev": "nodemon",
     "build": "tsc",
-    "start": "node dist/index.js"
+  "bundle": "npx @vercel/ncc build bundle-entry.js -o dist-bundle",
+    "start": "node dist/index.js",
+    "pkg:mac": "pkg dist-bundle/index.js --targets node18-macos-x64,node18-macos-arm64 --output build/download-steam-achievements-macos",
+    "pkg:win": "pkg dist-bundle/index.js --targets node18-win-x64 --output build/download-steam-achievements-win.exe",
+    "pkg:all": "pnpm run build && pnpm run bundle && pnpm run pkg:mac && pnpm run pkg:win"
   },
   "keywords": [],
   "author": "Vinicius Lino",
@@ -29,6 +34,7 @@
     "nodemon": "^3.1.10",
     "pkg": "^5.8.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+  "@vercel/ncc": "^0.38.4"
   }
 }

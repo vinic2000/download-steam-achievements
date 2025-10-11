@@ -1,0 +1,2 @@
+// shim created to satisfy pkg static scanner for optional dependency
+module.exports = {};
